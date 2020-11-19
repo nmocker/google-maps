@@ -1,0 +1,64 @@
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+0. Reset
+1. Main Layout
+2. Content
+
+==============================================
+*/
+
+/* 0. Reset ================================= */
+@import "reset";
+
+/* 1. Main Layout ================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+  padding: 2rem;
+}
+
+/* 2. Content ================================= */
+
+#my-map {
+  width: 90%;
+  height: 350px;
+  margin: 0 auto;
+}
+
+form {
+  margin-bottom: 30px;
+}
+input {
+  width: 250px;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: 0px 1px 8px 0px #666666;
+  box-shadow: 0px 1px 8px 0px #666666;
+  margin-right: 10px;
+}
+
+button {
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+li {
+  margin-top: 25px;
+  background-color: #fff;
+}

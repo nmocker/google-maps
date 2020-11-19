@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Google Maps</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="dist/css/main.css">
+
+	</head>
+	<body>
+
+		
+			<form id="place-search"> 
+				<input type="text" name="query" placeholder="Search for ...">
+				<button>Search</button>
+			</form>
+
+
+		<div id="my-map"></div>
+		
+		<ul class="results-grid"></ul>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+		<script src="dist/js/google-api.js"></script>
+		<script src="dist/js/main.js"></script>
+		<script defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3tRPWowcO3i2l6jwjEWdUg1wRaEShj1A&callback=gmap.setup&libraries=places&v=weekly"></script>
+	</body>
+</html>
