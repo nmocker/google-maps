@@ -58,7 +58,36 @@ button {
   cursor: pointer;
 }
 
-li {
-  margin-top: 25px;
-  background-color: #fff;
+.results-grid {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 60%;
+  min-width: 450px;
+
+  .result-div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 8px;
+  }
+
+  .info-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .address-el {
+    margin-top: 10px;
+  }
+
+  li {
+    margin-top: 25px;
+    background-color: #fff;
+    padding: 15px;
+  }
 }

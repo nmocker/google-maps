@@ -37,12 +37,10 @@ class GoogleApi {
                 for (let place of results) {
                     let geo = place.geometry.location
                     let title = place.name
-                    let content = `<h2>${place.name}</h2>`
-                    let rating = place.rating
-            
+                    let content = `<h2>${place.name}</h2>` + `<h2>${place.formatted_address}</h2>` + `<h2>${place.rating} ⭐</h2>`
 
 
-                    this.addMarker(geo, { title: title, content: content, rating: rating})
+                    this.addMarker(geo, { title: title, content: content})
                 }
             }
         })
@@ -60,7 +58,7 @@ class GoogleApi {
 
        this.myInfoWindow = new google.maps.InfoWindow({
             content: '',
-            rating: ''
+            maxWidth: 200,
         })
 
         this.addMarker(mbStadium, {title: "Mercedes-Benz Stadium", content: '<h2>Mercedes-Benz Stadium</h2>'})
@@ -72,7 +70,7 @@ class GoogleApi {
             map: this.myMap,
             position: position,
             title: info['title'],
-            rating: info['rating']
+    
 
         }) 
 
@@ -80,7 +78,7 @@ class GoogleApi {
 
         
         marker.addListener('click', () => {
-            this.myInfoWindow.setContent(info['content'], info['rating'])
+            this.myInfoWindow.setContent(info['content'])
             this.myInfoWindow.open(this.myMap, marker)
         })
     }

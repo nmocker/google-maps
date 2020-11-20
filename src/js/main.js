@@ -56,9 +56,27 @@ class Main {
             statsDiv.setAttribute('class', 'stats-div')
             dataDiv.appendChild(statsDiv)
 
+            const imgDiv = document.createElement('div')
+            imgDiv.setAttribute('class', 'img-div')
+            resultDiv.appendChild(imgDiv)
+
             const imgEl = document.createElement('img')
             imgEl.setAttribute('src', resultInfo.icon)
-            resultDiv.appendChild(imgEl)
+            imgDiv.appendChild(imgEl)
+
+            const nameEl = document.createElement('h2')
+            nameDiv.appendChild(nameEl)
+            nameEl.textContent = resultInfo.name
+
+            const ratingEl = document.createElement('span')
+            statsDiv.appendChild(ratingEl)
+            ratingEl.setAttribute('class', 'rating-el')
+            ratingEl.textContent = resultInfo.rating + ' ⭐'
+
+            const addressEl = document.createElement('span')
+            dataDiv.appendChild(addressEl)
+            addressEl.setAttribute('class', 'address-el')
+            addressEl.textContent = resultInfo.formatted_address
 
 
 

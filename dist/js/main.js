@@ -37,9 +37,23 @@ var Main = /*#__PURE__*/function () {
         var statsDiv = document.createElement('div');
         statsDiv.setAttribute('class', 'stats-div');
         dataDiv.appendChild(statsDiv);
+        var imgDiv = document.createElement('div');
+        imgDiv.setAttribute('class', 'img-div');
+        resultDiv.appendChild(imgDiv);
         var imgEl = document.createElement('img');
         imgEl.setAttribute('src', resultInfo.icon);
-        resultDiv.appendChild(imgEl);
+        imgDiv.appendChild(imgEl);
+        var nameEl = document.createElement('h2');
+        nameDiv.appendChild(nameEl);
+        nameEl.textContent = resultInfo.name;
+        var ratingEl = document.createElement('span');
+        statsDiv.appendChild(ratingEl);
+        ratingEl.setAttribute('class', 'rating-el');
+        ratingEl.textContent = resultInfo.rating + ' ⭐';
+        var addressEl = document.createElement('span');
+        dataDiv.appendChild(addressEl);
+        addressEl.setAttribute('class', 'address-el');
+        addressEl.textContent = resultInfo.formatted_address;
       }
     });
 

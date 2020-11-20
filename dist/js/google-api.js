@@ -51,13 +51,11 @@ var GoogleApi = /*#__PURE__*/function () {
               var place = _step.value;
               var geo = place.geometry.location;
               var title = place.name;
-              var content = "<h2>".concat(place.name, "</h2>");
-              var rating = place.rating;
+              var content = "<h2>".concat(place.name, "</h2>") + "<h2>".concat(place.formatted_address, "</h2>") + "<h2>".concat(place.rating, " \u2B50</h2>");
 
               _this.addMarker(geo, {
                 title: title,
-                content: content,
-                rating: rating
+                content: content
               });
             }
           } catch (err) {
@@ -92,7 +90,7 @@ var GoogleApi = /*#__PURE__*/function () {
       });
       this.myInfoWindow = new google.maps.InfoWindow({
         content: '',
-        rating: ''
+        maxWidth: 200
       });
       this.addMarker(mbStadium, {
         title: "Mercedes-Benz Stadium",
@@ -108,11 +106,10 @@ var GoogleApi = /*#__PURE__*/function () {
       var marker = new google.maps.Marker({
         map: this.myMap,
         position: position,
-        title: info['title'],
-        rating: info['rating']
+        title: info['title']
       });
       marker.addListener('click', function () {
-        _this2.myInfoWindow.setContent(info['content'], info['rating']);
+        _this2.myInfoWindow.setContent(info['content']);
 
         _this2.myInfoWindow.open(_this2.myMap, marker);
       });
