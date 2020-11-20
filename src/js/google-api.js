@@ -3,6 +3,7 @@ class GoogleApi {
     // note here which instance variables I'm using
     myMap = null;
     myInfoWindow = null;
+    markers = [];
 
     constructor() {
         console.log('GoogleApi()')
@@ -31,6 +32,9 @@ class GoogleApi {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
                 console.log('got results', results)
 
+                // clear any previous markers
+                this.clearMarkers()
+
                 const newEvent = new CustomEvent('place-results', {detail: results})
                 document.dispatchEvent(newEvent)
 
@@ -44,6 +48,13 @@ class GoogleApi {
                 }
             }
         })
+    }
+
+    clearMarkers() {
+        this.markers.forEach(marker => {
+            marker.setMap(null)
+        })
+        this.markers = []
     }
 
     setup() {
@@ -74,6 +85,7 @@ class GoogleApi {
 
         }) 
 
+        this.markers.push(marker)
       
 
         

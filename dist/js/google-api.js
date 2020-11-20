@@ -25,6 +25,8 @@ var GoogleApi = /*#__PURE__*/function () {
 
     _defineProperty(this, "myInfoWindow", null);
 
+    _defineProperty(this, "markers", []);
+
     _defineProperty(this, "handlePlaceSearch", function (theEvent) {
       console.log('got a place search request', theEvent);
       var service = new google.maps.places.PlacesService(_this.myMap);
@@ -37,7 +39,10 @@ var GoogleApi = /*#__PURE__*/function () {
       };
       service.textSearch(request, function (results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-          console.log('got results', results);
+          console.log('got results', results); // clear any previous markers
+
+          _this.clearMarkers();
+
           var newEvent = new CustomEvent('place-results', {
             detail: results
           });
@@ -77,6 +82,14 @@ var GoogleApi = /*#__PURE__*/function () {
       document.addEventListener('place-search', this.handlePlaceSearch);
     }
   }, {
+    key: "clearMarkers",
+    value: function clearMarkers() {
+      this.markers.forEach(function (marker) {
+        marker.setMap(null);
+      });
+      this.markers = [];
+    }
+  }, {
     key: "setup",
     value: function setup() {
       console.log('setting up a map');
@@ -108,6 +121,7 @@ var GoogleApi = /*#__PURE__*/function () {
         position: position,
         title: info['title']
       });
+      this.markers.push(marker);
       marker.addListener('click', function () {
         _this2.myInfoWindow.setContent(info['content']);
 
